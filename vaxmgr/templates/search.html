@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+{% csrf_token %}
+<title>Wyszukiwarka szczepionek</title>
+<form method="GET" content='text/html; charset=UTF-8' accept-charset="UTF-8">
+	{% autoescape on%}
+	
+	{% endautoescape %}
+	
+<table>
+	<tr>
+	<td></td>
+
+	<td>Nazwa</td>
+	<td>Przeciw</td>
+	<td>Placówka</td>
+	<td>Miasto</td>
+	<td>Data modyfikacji</td>
+	<td>Zmodyfikowano przez</td>
+	<td>Dostępność</td>
+	<td>Opis</td>
+	</tr>
+	<tr>
+		<td><input type="submit", value="Wyszukaj" /></td>
+		<td> {{ form.name }} </td>
+		<td> {{ form.illness }} </td>
+		<td> {{ form.branch }} </td>
+	</tr>
+	{% for vaccine in vacc %}
+	<tr>
+	<td></td>
+	<td>{{ vaccine.vaccine.name }}</td>
+	<td>{{ vaccine.vaccine.illness }}</td>
+	<td>{{ vaccine.branch.name }}</td>
+	<td>{{ vaccine.branch.city }}</td>
+	<td>{{ vaccine.date }}</td>
+	<td>{{ vaccine.modified_by }}</td>
+	<td>{{ vaccine.amount }}</td>
+	<td>{{ vaccine.vaccine.description }}</td>
+	</tr>
+	{% endfor %}
+</table>
+</form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Login</h2>
+<form method='post'>
+	<p><b>Akcja wymaga zalogowania</b></p>
+	{% csrf_token %}
+	{% autoescape on %}
+	{{ form.as_p }}
+	{% endautoescape %}
+	<button type='submit'>Zaloguj się</button>
+</form>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST">
+	{% csrf_token %}
+	{% autoescape on%}
+	{{ form.as_ul }}
+	{% endautoescape %}
+	<input type="submit", value="Aktualizuj" />
+</form>
+{% endblock %}

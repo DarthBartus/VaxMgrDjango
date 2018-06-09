@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Logowanie</h2>
+<form method='post'>
+	{% csrf_token %}
+	{% autoescape on %}
+	{{ form.as_p }}
+	{% endautoescape %}
+	<button type='submit'>Zaloguj się</button>
+</form>
+{% endblock %}

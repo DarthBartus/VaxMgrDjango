@@ -1,0 +1,21 @@
+<html>
+	<head> {{ form.media.css }}</head>
+	<table>
+		<td><a href="/connection"/> Szczepionki </td>
+		<td><a href="/search"/> Wyszukiwarka </td>
+		{% if user.is_authenticated %}
+		<td>Witaj, {{ user.username }}!</td>
+		<td><a href='{% url 'logout' %}'> Wyloguj się</a></td>
+
+		{% else %}
+		<td><a href='/accounts/login'</a> Zaloguj się </td>
+		{% endif %}
+	</table>
+	<body>
+	{{ form.media.js }}
+		{% block content %}{% endblock %}
+	
+	
+	
+	</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<table>
+	<tr>Nazwa</tr>
+	<tr>Przeciw</tr>
+	<tr>Oddział</tr>
+	{% for vaccine in vacc %}
+	<td>{{ vaccine.vaccine.name }}</td>
+	<td>{{ vaccine.vaccine.sickness }}</td>
+	<td>{{ vaccine.branch.name }}</td>
+	{% endfor %}
+</table>
+{% endblock %}
